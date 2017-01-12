@@ -6,7 +6,6 @@
 %}{% endif
 
 %}{% assign url_parts = page_url | split: '/'
-%}{% assign url_parts_size = url_parts | size
 %}{% if last_url_char == '/'
 %}{%     assign url_basename = ""
 %}{% else
@@ -15,7 +14,7 @@
 %}{% assign url_dirname_size = page_url.size | minus: url_parts.last.size | minus: 1
 %}{% assign url_dirname = page.url | truncate: url_dirname_size, ''
 
-%}{% assign url_depth = url_parts_size | minus: 2
+%}{% assign url_depth = url_parts | size | minus: 2
 %}{% assign rbaseurl = ""
 %}{% for i in (1..url_depth)
 %}{%    assign rbaseurl = rbaseurl | append: '../'
