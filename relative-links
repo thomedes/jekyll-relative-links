@@ -32,4 +32,4 @@ url_dirname:      "{{url_dirname}}"
 url_depth:        {{url_depth}}
 rbaseurl:         "{{rbaseurl}}"
 </pre>{% endif
-%}
+%}{% if relative_links_test %}{{ rbaseurl }}{% endif %}

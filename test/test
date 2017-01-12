@@ -1,0 +1,31 @@
+#! /usr/bin/env bash
+
+# Using liquid-cli  from https://github.com/pbrisbin/liquid-cli
+
+function run_test {
+    local input_path="$1"; shift
+    liquid "{ \"page\": { \"url\": \"$input_path\" }, \"relative_links_test\": true }" \
+           < ../relative-links
+}
+
+function test {
+    local input_path="$1"; shift
+    local expected_output="$1"; shift
+
+    local output="$(run_test "$input_path")"
+    if [[ "$output" != "$expected_output" ]]
+    then
+        echo "Test failed: \"$output\" != \"$expected_output\"" >&2
+        exit 1
+    fi
+}
+
+test "/" ""
+test "/index.html" ""
+test "/blog/" "../"
+test "/blog/index.html" "../"
+test "/blog/foo.html" "../"
+test "/blog/old/" "../../"
+
+echo 'Test finalized OK!'
+
