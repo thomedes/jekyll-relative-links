@@ -16,3 +16,12 @@ That's it!, now you can:
 
 If you need to use it in your page/post you'll have to include it again, as liquid variables 
 are not passed from one include to another
+
+Similar projects
+----------------
+
+Just found [benbalter](https://github.com/benbalter)/[jekyll-relative-links](https://github.com/benbalter/jekyll-relative-links)
+
+My project has the same intention but no relation to it. I'll look at it to get ideas,
+but my intention was to make a really easy to use "plugin", even if that means less 
+features.
